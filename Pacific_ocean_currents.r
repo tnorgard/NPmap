@@ -39,7 +39,8 @@ require(PBSmapping)       #Package to draw maps
 require(maps)
 require(igraph)
 
-map.dir <- c("c:/mary/maps/GSHHS/");
+#map.dir <- c("c:/mary/maps/GSHHS/");
+map.dir <- c("C:\mainfile\github\NPmap\");
 
 ##______________________________________________________________________________
 ##                                DATA
