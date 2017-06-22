@@ -37,6 +37,7 @@ alldata <- read.csv(file=data.file, header=TRUE, sep=",")
 ################################################################################
 require(PBSmapping)       #Package to draw maps
 require(maps)
+require(igraph)
 
 map.dir <- c("c:/mary/maps/GSHHS/");
 
@@ -84,12 +85,15 @@ importGSHHSborders <- function (gshhsDB, xlim, ylim, maxLevel = 4, n = 0)
 }
 
 limits <- list(x = c(185, 260), y = c(20, 65))
-polys <- importGSHHS (paste(map.dir,"gshhs_h.b",sep=""),xlim=limits$x,ylim=limits$y,maxLevel=4)
+polys <- importGSHHS (paste(map.dir,"gshhs_h.b",sep=""),xlim=limits$x,ylim=limits$y,maxLevel=1)
 
 jpeg("Pacific_ocean_currents.jpg", width=1600, height=1200, quality=100, pointsize=24)
 plotMap(polys,border="grey20",plt=c(.05,.99,.075,.99),projection="LL",colHoles=NA,tckLab=FALSE, col="grey20", bg="transparent") 
-addPolys(zone.poly,border="grey20",col="darkblue")
-addPolys(polys,border="grey20",plt=c(.05,.99,.075,.99),projection="LL",colHoles=NA,tckLab=FALSE, col="grey20", bg="transparent") 
+addPolys(zone.poly,border="grey20",col=c("dodgerblue","yellow","red"))
+addPolys(polys,border="grey20",col="grey50") 
+
+#add arrows for currents
+
 dev.off ()
 
 
