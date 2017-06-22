@@ -30,7 +30,9 @@ filename <- c("zone_polys.csv")    #### CHANGE DATA FILE NAME HERE ####
 data.file <- paste(root.dir, filename, sep="");
 alldata <- read.csv(file=data.file, header=TRUE, sep=",")
 
-
+filename2 = c("zone_labels.csv")
+data.file <- paste(root.dir, filename2, sep="");
+zone.labs <- read.csv(file=data.file, header=TRUE, sep=",")
 
 ##______________________________________________________________________________
 ##                              LIBRAIRIES
@@ -46,6 +48,7 @@ map.dir <- c("c:/mary/maps/GSHHS/");
 ################################################################################
 
 zone.poly<-as.PolySet(alldata,projection="LL",zone=11)
+zone.labs.poly = as.PolySet(zone.labs,projection="LL",zone=11)
 
 ##______________________________________________________________________________
 ##                              PARAMETERS
@@ -91,6 +94,7 @@ jpeg("Pacific_ocean_currents.jpg", width=1600, height=1200, quality=100, pointsi
 plotMap(polys,border="grey20",plt=c(.05,.99,.075,.99),projection="LL",colHoles=NA,tckLab=FALSE, col="grey20", bg="transparent") 
 addPolys(zone.poly,border="grey20",col=c("dodgerblue","yellow","red"))
 addPolys(polys,border="grey20",col="grey50") 
+addLabels(zone.labs,placement="DATA")
 
 #add arrows for currents
 
