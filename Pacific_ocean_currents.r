@@ -42,7 +42,7 @@ require(maps)
 require(igraph)
 
 #map.dir <- c("c:/mary/maps/GSHHS/");
-map.dir <- c("C:\mainfile\github\NPmap\");
+map.dir <- c("c:/mainfile/github/NPmap/");
 
 ##______________________________________________________________________________
 ##                                DATA
